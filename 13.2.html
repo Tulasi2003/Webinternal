@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Filter Strings by Length</title>
+  <script>
+    const filterStringsByLength = (arr) => {
+      const length = parseInt(prompt("Enter the length of the strings:"));
+
+      if (isNaN(length)) {
+        alert("Invalid length. Please enter a valid number.");
+        return [];
+      }
+
+      return arr.filter((str) => str.length === length);
+    };
+
+    function processStrings() {
+      const strings = ["apple", "banana", "cat", "dog", "elephant"];
+      const filteredStrings = filterStringsByLength(strings);
+      document.write("<p>Filtered Strings: " + filteredStrings.join(", ") + "</p>");
+    }
+  </script>
+</head>
+<body>
+  <h1>Filter Strings by Length</h1>
+  <button onclick="processStrings()">Process Strings</button>
+</body>
+</html>

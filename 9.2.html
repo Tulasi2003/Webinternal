@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Array Manipulation</title>
+  <script>
+    function addElement() {
+      var position = parseInt(prompt("Enter the position to add the element:"));
+      var element = prompt("Enter the element to add:");
+
+      if (isNaN(position)) {
+        alert("Invalid position. Please enter a valid number.");
+        return;
+      }
+
+      if (position < 0 || position > array.length) {
+        alert("Position is out of range. Please enter a valid position.");
+        return;
+      }
+
+      array.splice(position, 0, element);
+      displayArray();
+    }
+
+    function deleteElement() {
+      var position = parseInt(prompt("Enter the position to delete the element:"));
+
+      if (isNaN(position)) {
+        alert("Invalid position. Please enter a valid number.");
+        return;
+      }
+
+      if (position < 0 || position >= array.length) {
+        alert("Position is out of range. Please enter a valid position.");
+        return;
+      }
+
+      array.splice(position, 1);
+      displayArray();
+    }
+
+    function displayArray() {
+      document.getElementById("result").innerText = array.join(", ");
+    }
+
+    var array = [1, 2, 3, 4, 5]; // Initial array
+
+    window.onload = function() {
+      displayArray();
+    };
+  </script>
+</head>
+<body>
+  <h1>Array Manipulation</h1>
+  <p>Array: <span id="result"></span></p>
+  <button onclick="addElement()">Add Element</button>
+  <button onclick="deleteElement()">Delete Element</button>
+</body>
+</html>

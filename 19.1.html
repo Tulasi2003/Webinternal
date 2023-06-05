@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Promise Arithmetic Operations</title>
+    <script>
+        function performArithmeticOperations() {
+            const resultContainer = document.getElementById("resultContainer");
+
+            // Addition Promise
+            const addPromise = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    const num1 = 10;
+                    const num2 = 5;
+                    const result = num1 + num2;
+                    resolve(`Addition: ${num1} + ${num2} = ${result}`);
+                }, 1000);
+            });
+
+            // Subtraction Promise
+            const subtractPromise = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    const num1 = 10;
+                    const num2 = 5;
+                    const result = num1 - num2;
+                    resolve(`Subtraction: ${num1} - ${num2} = ${result}`);
+                }, 2000);
+            });
+
+            // Multiplication Promise
+            const multiplyPromise = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    const num1 = 10;
+                    const num2 = 5;
+                    const result = num1 * num2;
+                    resolve(`Multiplication: ${num1} * ${num2} = ${result}`);
+                }, 3000);
+            });
+
+            // Division Promise
+            const dividePromise = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    const num1 = 10;
+                    const num2 = 5;
+                    const result = num1 / num2;
+                    resolve(`Division: ${num1} / ${num2} = ${result}`);
+                }, 4000);
+            });
+
+            // Perform operations synchronously using await
+            async function performOperations() {
+                try {
+                    const additionResult = await addPromise;
+                    resultContainer.innerHTML += `<p>${additionResult}</p>`;
+
+                    const subtractionResult = await subtractPromise;
+                    resultContainer.innerHTML += `<p>${subtractionResult}</p>`;
+
+                    const multiplicationResult = await multiplyPromise;
+                    resultContainer.innerHTML += `<p>${multiplicationResult}</p>`;
+
+                    const divisionResult = await dividePromise;
+                    resultContainer.innerHTML += `<p>${divisionResult}</p>`;
+                } catch (error) {
+                    console.error(error);
+                }
+            }
+
+            performOperations();
+        }
+    </script>
+</head>
+<body>
+    <h1>Promise Arithmetic Operations</h1>
+    <button onclick="performArithmeticOperations()">Perform Operations</button>
+    <div id="resultContainer"></div>
+</body>
+</html>

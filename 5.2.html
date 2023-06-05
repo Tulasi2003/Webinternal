@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Count Words</title>
+  <script>
+    function countWords(str) {
+      // Remove leading and trailing whitespaces
+      str = str.trim();
+
+      // Split the string into an array of words
+      var words = str.split(/\s+/);
+
+      // Return the number of words
+      return words.length;
+    }
+
+    function calculateWordCount() {
+      // Prompt the user to enter a string
+      var inputString = prompt("Enter a string:");
+
+      // Call the countWords function to calculate the word count
+      var count = countWords(inputString);
+
+      // Display the result using an alert
+      alert("The number of words in the string is: " + count);
+    }
+  </script>
+</head>
+<body>
+  <button onclick="calculateWordCount()">Calculate Word Count</button>
+</body>
+</html>

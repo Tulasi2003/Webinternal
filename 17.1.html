@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Map vs Object Performance Comparison</title>
+    <script>
+        function performMapOperations() {
+            const iterations = parseInt(document.getElementById("iterations").value);
+            const map = new Map();
+
+            // Start timer
+            console.time("Map");
+
+            for (let i = 0; i < iterations; i++) {
+                const key = prompt("Enter the key:");
+                const value = prompt("Enter the value:");
+                map.set(key, value);
+            }
+
+            for (let i = 0; i < iterations; i++) {
+                const key = prompt("Enter the key to delete:");
+                map.delete(key);
+            }
+
+            // Stop timer and display time
+            console.timeEnd("Map");
+        }
+
+        function performObjectOperations() {
+            const iterations = parseInt(document.getElementById("iterations").value);
+            const obj = {};
+
+            // Start timer
+            console.time("Object");
+
+            for (let i = 0; i < iterations; i++) {
+                const key = prompt("Enter the key:");
+                const value = prompt("Enter the value:");
+                obj[key] = value;
+            }
+
+            for (let i = 0; i < iterations; i++) {
+                const key = prompt("Enter the key to delete:");
+                delete obj[key];
+            }
+
+            // Stop timer and display time
+            console.timeEnd("Object");
+        }
+    </script>
+</head>
+<body>
+    <h1>Map vs Object Performance Comparison</h1>
+    <label for="iterations">Enter the number of iterations:</label>
+    <input type="number" id="iterations" required>
+    <br><br>
+    <button onclick="performMapOperations()">Perform Map Operations</button>
+    <button onclick="performObjectOperations()">Perform Object Operations</button>
+</body>
+</html>

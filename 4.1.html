@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Calculator</title>
+  <script>
+    function calculate() {
+      // Get the values from the input text boxes
+      var operand1 = parseFloat(document.getElementById("operand1").value);
+      var operand2 = parseFloat(document.getElementById("operand2").value);
+      var operator = document.getElementById("operator").value;
+
+      var result;
+
+      // Perform the calculation based on the selected operator
+      if (operator === "+") {
+        result = operand1 + operand2;
+      } else if (operator === "-") {
+        result = operand1 - operand2;
+      } else if (operator === "*") {
+        result = operand1 * operand2;
+      } else if (operator === "/") {
+        result = operand1 / operand2;
+      } else {
+        // If an invalid operator is selected, display an error message
+        result = "Invalid operator";
+      }
+
+      // Display the result using an alert box
+      alert("Result: " + result);
+    }
+  </script>
+</head>
+<body>
+  <h1>Simple Calculator</h1>
+  <label for="operand1">Operand 1:</label>
+  <input type="text" id="operand1"><br>
+  <label for="operator">Operator:</label>
+  <input type="text" id="operator"><br>
+  <label for="operand2">Operand 2:</label>
+  <input type="text" id="operand2"><br>
+  <button onclick="calculate()">Calculate</button>
+</body>
+</html>

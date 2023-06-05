@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Factorial Calculation</title>
+  <script>
+    const factorial = (num) => {
+      if (num === 0 || num === 1) {
+        return 1;
+      } else {
+        return num * factorial(num - 1);
+      }
+    };
+
+    function calculateFactorial() {
+      var number = parseInt(prompt("Enter a number to calculate factorial:"));
+
+      if (isNaN(number)) {
+        alert("Invalid number. Please enter a valid number.");
+        return;
+      }
+
+      var result = factorial(number);
+      document.write("<p>Factorial of " + number + " is: " + result + "</p>");
+    }
+  </script>
+</head>
+<body>
+  <h1>Factorial Calculation</h1>
+  <button onclick="calculateFactorial()">Calculate Factorial</button>
+</body>
+</html>

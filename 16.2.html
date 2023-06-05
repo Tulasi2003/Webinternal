@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Map Example</title>
+  <script>
+    let myMap = new Map();
+
+function storeValue() {
+  const inputKey = document.getElementById("inputKey").value;
+  const inputValue = document.getElementById("inputValue").value;
+  myMap.set(inputKey, inputValue);
+  document.getElementById("inputKey").value = "";
+  document.getElementById("inputValue").value = "";
+  document.getElementById("output").innerText = "Value stored in the map.";
+}
+
+function retrieveValue() {
+  const inputKey = document.getElementById("inputKey").value;
+  if (myMap.has(inputKey)) {
+    const value = myMap.get(inputKey);
+    document.getElementById("output").innerText = "Value: " + value;
+  } else {
+    document.getElementById("output").innerText = "Key does not exist in the map.";
+  }
+  document.getElementById("inputKey").value = "";
+}
+
+function iterateMap() {
+  let output = "Map Entries: ";
+  myMap.forEach((value, key) => {
+    output += key + ": " + value + ", ";
+  });
+  document.getElementById("output").innerText = output.slice(0, -2); // Remove the trailing comma and space
+}
+
+
+  </script>
+</head>
+<body>
+  <h1>Map Example</h1>
+  <input type="text" id="inputKey" placeholder="Enter a key">
+  <input type="text" id="inputValue" placeholder="Enter a value">
+  <button onclick="storeValue()">Store Value</button>
+  <button onclick="retrieveValue()">Retrieve Value</button>
+  <button onclick="iterateMap()">Iterate Map</button>
+  <div id="output"></div>
+</body>
+</html>

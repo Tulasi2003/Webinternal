@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Number and Squares</title>
+  <script>
+    function displayNumberAndSquares() {
+      // Prompt the user to enter a number
+      var limit = parseInt(prompt("Enter a number:"));
+
+      var result = "Number\tSquare\n";
+
+      // Iterate from 1 to the limit
+      for (var i = 1; i <= limit; i++) {
+        var square = i * i;
+        result += i + "\t" + square + "\n";
+      }
+
+      // Display the result using an alert
+      alert(result);
+    }
+  </script>
+</head>
+<body>
+  <button onclick="displayNumberAndSquares()">Display Numbers and Squares</button>
+</body>
+</html>

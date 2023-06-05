@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Reverse Number</title>
+</head>
+<body>
+  <h1>Reverse Number</h1>
+  <input type="number" id="inputNumber" placeholder="Enter a number">
+  <button id="reverseButton">Reverse</button>
+  <div id="output"></div>
+  
+  <script> 
+  const reverseNumber = (number) => {
+  const reversedString = number.toString().split('').reverse().join('');
+  return parseInt(reversedString);
+};
+
+document.getElementById("reverseButton").addEventListener("click", () => {
+  const inputNumber = document.getElementById("inputNumber").value;
+  const reversedNumber = reverseNumber(inputNumber);
+  document.getElementById("output").innerText = "Reversed Number: " + reversedNumber;
+});
+
+</script>
+</body>
+</html>

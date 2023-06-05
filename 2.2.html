@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sum of Digits</title>
+  <script>
+    function calculateDigitSum() {
+      // Prompt the user to enter a number
+      var number = prompt("Enter a number:");
+
+      var sum = 0;
+
+      // Iterate over each digit in the number
+      for (var i = 0; i < number.length; i++) {
+        var digit = parseInt(number[i]);
+        sum += digit;
+      }
+
+      // Display the result using document.write()
+      document.write("The sum of the digits is: " + sum);
+    }
+  </script>
+</head>
+<body>
+  <button onclick="calculateDigitSum()">Calculate Digit Sum</button>
+</body>
+</html>

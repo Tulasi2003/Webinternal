@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Odd/Even Checker</title>
+</head>
+<body>
+  <script>
+    function checkOddOrEven() {
+      // Prompt the user to enter a number
+      var number = parseInt(prompt("Enter a number:"));
+
+      // Check if the number is odd or even
+      var result;
+      if (number % 2 === 0) {
+        result = "The number is even.";
+      } else {
+        result = "The number is odd.";
+      }
+
+      // Display the result
+      document.getElementById("result").textContent = result;
+    }
+  </script>
+  <h1>Odd/Even Checker</h1>
+  <button onclick="checkOddOrEven()">Check Number</button>
+  <div id="result"></div>
+</body>
+</html>

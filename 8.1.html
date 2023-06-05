@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Name Processing</title>
+  <script>
+    function processName() {
+      // Prompt the user to enter the name
+      var name = prompt("Enter the name:");
+
+      // Split the name into individual words
+      var words = name.split(" ");
+
+      // Extract the initials from the words
+      var initials = words.map(function(word) {
+        return word.charAt(0).toUpperCase();
+      });
+
+      // Join the initials with periods
+      var formattedName = initials.join(".") + "." + words.pop();
+
+      // Display the formatted name using document.write
+      document.write('<p style="font-size: 14px; color: red; background-color: cyan;">' + formattedName + '</p>');
+    }
+
+    // Call the processName function when the page is loaded
+    window.onload = processName;
+  </script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Multiplication Table</title>
+  <script>
+    function createMultiplicationTable() {
+      // Prompt the user to enter the number of rows and columns
+      var rows = parseInt(prompt("Enter the number of rows:"));
+      var columns = parseInt(prompt("Enter the number of columns:"));
+
+      var table = "<table>";
+
+      // Create the table rows and columns
+      for (var i = 1; i <= rows; i++) {
+        table += "<tr>";
+        for (var j = 1; j <= columns; j++) {
+          var product = i * j;
+          table += "<td>" + i + " x " + j + " = " + product + "</td>";
+        }
+        table += "</tr>";
+      }
+
+      table += "</table>";
+
+      // Display the table on the page
+      document.getElementById("multiplicationTable").innerHTML = table;
+    }
+  </script>
+</head>
+<body>
+  <button onclick="createMultiplicationTable()">Create Multiplication Table</button>
+  <div id="multiplicationTable"></div>
+</body>
+</html>

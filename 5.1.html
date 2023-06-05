@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Count Vowels</title>
+  <script>
+    function countVowels(str) {
+      var vowelCount = 0;
+      var vowels = ['a', 'e', 'i', 'o', 'u'];
+
+      for (var i = 0; i < str.length; i++) {
+        var char = str[i].toLowerCase();
+
+        if (vowels.includes(char)) {
+          vowelCount++;
+        }
+      }
+
+      return vowelCount;
+    }
+
+    function calculateVowelCount() {
+      // Prompt the user to enter a string
+      var inputString = prompt("Enter a string:");
+
+      // Call the countVowels function to calculate the vowel count
+      var count = countVowels(inputString);
+
+      // Display the result using an alert
+      alert("The number of vowels in the string is: " + count);
+    }
+  </script>
+</head>
+<body>
+  <button onclick="calculateVowelCount()">Calculate Vowel Count</button>
+</body>
+</html>

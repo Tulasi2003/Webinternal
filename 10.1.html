@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Binary Search</title>
+  <script>
+    var array = [];
+
+    function addElement() {
+      var element = prompt("Enter an element (or type 'stop' to finish):");
+
+      if (element === 'stop') {
+        displayArray();
+        return;
+      }
+
+      array.push(parseInt(element));
+      addElement();
+    }
+
+    function binarySearch(target) {
+      var left = 0;
+      var right = array.length - 1;
+
+      while (left <= right) {
+        var mid = Math.floor((left + right) / 2);
+
+        if (array[mid] === target) {
+          return mid;
+        } else if (array[mid] < target) {
+          left = mid + 1;
+        } else {
+          right = mid - 1;
+        }
+      }
+
+      return -1;
+    }
+
+    function displayArray() {
+      document.getElementById("array").innerText = "Array: " + array.join(", ");
+    }
+
+    function search() {
+      var target = parseInt(prompt("Enter the element to search for:"));
+
+      if (isNaN(target)) {
+        alert("Invalid target. Please enter a valid number.");
+        return;
+      }
+
+      array.sort(function(a, b) {
+        return a - b;
+      });
+
+      var index = binarySearch(target);
+      if (index !== -1) {
+        document.write("<p>" + target + " found at index " + index + ".</p>");
+      } else {
+        document.write("<p>" + target + " not found in the array.</p>");
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Binary Search</h1>
+  <button onclick="addElement()">Add Element</button>
+  <button onclick="search()">Search</button>
+  <p id="array"></p>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Event Demo</title>
+  <script>
+    function handleClick() {
+      alert("Button clicked!");
+    }
+
+    function handleMouseOver() {
+      document.getElementById("demo").innerHTML = "Mouse over the element.";
+    }
+
+    function handleMouseOut() {
+      document.getElementById("demo").innerHTML = "Mouse out of the element.";
+    }
+
+    function handleChange() {
+      var value = document.getElementById("input").value;
+      document.getElementById("output").innerHTML = "Input value changed: " + value;
+    }
+
+    function handleKeyDown(event) {
+      var keyCode = event.keyCode;
+      document.getElementById("key").innerHTML = "Key down event: " + keyCode;
+    }
+  </script>
+</head>
+<body>
+  <h1>Event Demo</h1>
+  <button onclick="handleClick()">Click Me</button>
+  <p id="demo">Mouse events:</p>
+  <div onmouseover="handleMouseOver()" onmouseout="handleMouseOut()" style="background-color: lightgray; width: 200px; height: 100px;"></div>
+  <p>Change event:</p>
+  <input type="text" id="input" onchange="handleChange()">
+  <p id="output"></p>
+  <p>Keydown event:</p>
+  <input type="text" id="key" onkeydown="handleKeyDown(event)">
+</body>
+</html>

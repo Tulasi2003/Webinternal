@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Set Example</title>
+  <script>
+    let mySet = new Set();
+
+function storeValue() {
+  const inputValue = document.getElementById("inputValue").value;
+  mySet.add(inputValue);
+  document.getElementById("inputValue").value = "";
+  document.getElementById("output").innerText = "Value stored in the set.";
+}
+
+function retrieveValue() {
+  const inputValue = document.getElementById("inputValue").value;
+  if (mySet.has(inputValue)) {
+    document.getElementById("output").innerText = "Value exists in the set.";
+  } else {
+    document.getElementById("output").innerText = "Value does not exist in the set.";
+  }
+  document.getElementById("inputValue").value = "";
+}
+
+function iterateSet() {
+  let output = "Set Values: ";
+  for (let value of mySet) {
+    output += value + ", ";
+  }
+  document.getElementById("output").innerText = output.slice(0, -2); // Remove the trailing comma and space
+}
+  </script>
+</head>
+<body>
+  <h1>Set Example</h1>
+  <input type="text" id="inputValue" placeholder="Enter a value">
+  <button onclick="storeValue()">Store Value</button>
+  <button onclick="retrieveValue()">Retrieve Value</button>
+  <button onclick="iterateSet()">Iterate Set</button>
+  <div id="output"></div>
+</body>
+</html>

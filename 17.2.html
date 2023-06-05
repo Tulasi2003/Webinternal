@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Set vs Array Performance Comparison</title>
+    <script>
+        function performSetSearch() {
+            const valueToSearch = document.getElementById("searchInput").value;
+            const set = new Set();
+
+            // Populate the set
+            for (let i = 0; i < 1000000; i++) {
+                set.add("value" + i);
+            }
+
+            // Start timer
+            console.time("Set");
+
+            const isValuePresent = set.has(valueToSearch);
+
+            // Stop timer and display result
+            console.timeEnd("Set");
+            document.getElementById("result").textContent = isValuePresent ? "Value found in Set" : "Value not found in Set";
+        }
+
+        function performArraySearch() {
+            const valueToSearch = document.getElementById("searchInput").value;
+            const array = [];
+
+            // Populate the array
+            for (let i = 0; i < 1000000; i++) {
+                array.push("value" + i);
+            }
+
+            // Start timer
+            console.time("Array");
+
+            const isValuePresent = array.includes(valueToSearch);
+
+            // Stop timer and display result
+            console.timeEnd("Array");
+            document.getElementById("result").textContent = isValuePresent ? "Value found in Array" : "Value not found in Array";
+        }
+    </script>
+</head>
+<body>
+    <h1>Set vs Array Performance Comparison</h1>
+    <label for="searchInput">Enter the value to search:</label>
+    <input type="text" id="searchInput" required>
+    <br><br>
+    <button onclick="performSetSearch()">Perform Set Search</button>
+    <button onclick="performArraySearch()">Perform Array Search</button>
+    <br><br>
+    <p id="result"></p>
+</body>
+</html>
